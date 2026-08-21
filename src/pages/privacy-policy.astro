@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const SEO = {
+	title: 'Privacy Policy',
+	description: 'Read the privacy policy for Codenetic CRM and its WhatsApp integration using the Meta Cloud API.'
+}
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<section class="max-w-3xl mx-auto py-12 px-6 text-gray-800 dark:text-gray-200">
+		<h1 class="text-4xl font-bold mb-6">Privacy Policy</h1>
+		<p class="mb-6">This Privacy Policy outlines how Codenetic CRM ("we", "our", or "us") collects, uses, and protects personal information when you use our services, including our integration with the WhatsApp Cloud API ("Service").</p>
+
+		<h2 class="text-2xl font-semibold mt-8 mb-2">1. Information We Collect</h2>
+		<ul class="list-disc list-inside mb-6">
+			<li><strong>WhatsApp Business Account Information:</strong> When connecting your WhatsApp Business Account, we collect and store your WhatsApp phone number, Business Account ID, and access tokens required to send and receive messages.</li>
+			<li><strong>Message Metadata:</strong> We store metadata including message IDs, timestamps, delivery/read receipts, and phone numbers involved in conversations.</li>
+			<li><strong>User Communication Data:</strong> We store the content of messages sent and received through the WhatsApp Cloud API for operational and audit purposes.</li>
+		</ul>
+
+		<h2 class="text-2xl font-semibold mt-8 mb-2">2. How We Use Your Information</h2>
+		<ul class="list-disc list-inside mb-6">
+			<li>To enable real-time communication between your team and customers via WhatsApp</li>
+			<li>To deliver messages, media, and notifications through the WhatsApp Cloud API</li>
+			<li>To provide analytics, support, and improve CRM performance</li>
+			<li>To notify you of expired access tokens or authentication issues</li>
+		</ul>
+
+		<h2 class="text-2xl font-semibold mt-8 mb-2">3. User Consent</h2>
+		<p class="mb-6">All users contacted via WhatsApp must have opted in to receive messages from your business. It is your responsibility to ensure proper user consent is obtained before initiating any communication using our platform.</p>
+
+		<h2 class="text-2xl font-semibold mt-8 mb-2">4. Data Sharing</h2>
+		<ul class="list-disc list-inside mb-6">
+			<li>We do not sell or rent your data to third parties.</li>
+			<li>We only share data with Meta Platforms, Inc. as required for sending/receiving messages via the WhatsApp Cloud API.</li>
+			<li>We may share data when required by law or for the protection of legal rights.</li>
+		</ul>
+
+		<h2 class="text-2xl font-semibold mt-8 mb-2">5. Data Retention</h2>
+		<p class="mb-6">We retain message content and metadata only for the duration required to operate the service, resolve disputes, and meet compliance requirements. Data can be deleted upon request.</p>
+
+		<h2 class="text-2xl font-semibold mt-8 mb-2">6. Security</h2>
+		<p class="mb-6">We implement encryption, access controls, and secure storage practices to protect your data. While we strive to use commercially acceptable means to protect your information, no method of transmission over the Internet is 100% secure.</p>
+
+		<h2 class="text-2xl font-semibold mt-8 mb-2">7. Your Rights</h2>
+		<p class="mb-6">You may request deletion or correction of your data at any time by contacting <a href="mailto:support@codenetic.tech" class="text-blue-400 underline">support@codenetic.tech</a>.</p>
+
+		<h2 class="text-2xl font-semibold mt-8 mb-2">8. Changes to This Policy</h2>
+		<p class="mb-6">We may revise this Privacy Policy from time to time. Updates will be published on this page with the date of the latest revision.</p>
+
+		<h2 class="text-2xl font-semibold mt-8 mb-2">9. Contact Us</h2>
+		<p>If you have any questions about this policy, you can reach us at <a href="mailto:support@codenetic.tech" class="text-blue-400 underline">support@codenetic.tech</a>.</p>
+	</section>
+</Layout>

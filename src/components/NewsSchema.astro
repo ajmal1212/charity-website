@@ -1,0 +1,44 @@
+---
+interface Props {
+  headline: string;
+  image: string[];
+  datePublished: string;
+  dateModified: string;
+}
+
+const { headline, image, datePublished, dateModified } = Astro.props as Props;
+
+// Constant Author
+const author = {
+  "@type": "Person",
+  "name": "Ajmal",
+  "url": "https://codenetic.tech/profile/ajmal"
+};
+
+// Constant Publisher
+const publisher = {
+  "@type": "Organization",
+  "name": "Codenetic Tech",
+  "logo": {
+    "@type": "ImageObject",
+    "url": "https://codenetic.tech/logo.png"
+  }
+};
+
+// Final News Schema (BlogPosting is valid for blog content)
+const newsSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": headline,
+  "image": image,
+  "datePublished": datePublished,
+  "dateModified": dateModified,
+  "author": author,
+  "publisher": publisher,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://codenetic.tech" // Optionally use blog post URL dynamically
+  }
+};
+---
+<script type="application/ld+json" is:inline set:html={JSON.stringify(newsSchema)} />

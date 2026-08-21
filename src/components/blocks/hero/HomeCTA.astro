@@ -1,7 +1,7 @@
 ---
-// Home page CTA Section
+// Home page Hero Section
 // ------------
-// Description: A centered call to action section that contains: a title, text, a user review snippet, a button and a image.
+// Description: A split hero section that introduces the trust, with a registration badge, title, text, and action buttons on the left, and a photo on the right.
 
 // Components
 // - Layout
@@ -10,47 +10,35 @@ import Row from '../../ui/Row.astro'
 import Col from '../../ui/Col.astro'
 // - UI
 import ChipNotification from '../../ui/ChipNotification.astro'
-import { Image } from 'astro:assets'
+import { Icon } from 'astro-icon/components'
 import Button from '../../ui/Button.astro'
-import AvatarGroup from '../../ui/AvatarGroup.astro'
-
-// Content
-// - Hero Image
-import heroImage from '../../../assets/hero-01.png'
-// - Avatars
-import user1 from '../../../assets/avatars/avatar-01.webp'
-import user2 from '../../../assets/avatars/avatar-02.webp'
-import user3 from '../../../assets/avatars/avatar-03.webp'
-const avatars = [
-	{ image: { src: user1.src, alt: 'user name' }, link: '/' },
-	{ image: { src: user2.src, alt: 'user name' }, link: '/' },
-	{ image: { src: user3.src, alt: 'user name' }, link: '/' }
-]
 ---
 
-<Section id="intro" padding="top" classes="bg-neutral-50 dark:bg-neutral-900">
+<Section id="intro" classes="bg-neutral-50 dark:bg-neutral-900">
 	<Row>
-		<Col span="2" />
-		<Col span="8" align="center">
+		<Col span="6" classes="self-center">
 			<ChipNotification radius="rounded-full" classes="mb-6">
-				<strong>30K+</strong> satisfied customers
-				<AvatarGroup avatars={avatars} radius="rounded-full" slot="button" />
+				<Icon name="heart" class="ml-3 h-5 w-5 text-primary-500" slot="button" />
+				Registered Charitable Trust &middot; DARPAN ID: TN/2025/0490055
 			</ChipNotification>
-			<h1>Codenetic Your <strong>One Stop</strong> Digital Solution Partner</h1>
+			<h1>Empowering Lives with <strong>Dignity</strong> and Hope</h1>
 
-			<p class="pb-0 text-lg">Automate. Connect. Grow.</p>
-			<Button size="lg" link="/">Get started for free</Button>
+			<p class="pb-0 text-lg">
+				PICHUMANI SRI LAKSHMI NARASIMHAN (PSLN) TRUST was founded in August 2024 in Coimbatore to
+				serve the underprivileged through education, food, clothing, and other humanitarian needs.
+			</p>
+			<div class="flex flex-wrap gap-4">
+				<Button size="lg" link="/donate">Donate Now</Button>
+				<Button size="lg" style="secondary" link="/about">Learn About Us</Button>
+			</div>
 		</Col>
-		<Col span="2" />
-		<Col span="2" />
-		<Col span="8">
-			<Image
-				src={heroImage}
-				alt="Codenetic. The tailwind astro theme"
-				class="translate-y-8 shadow-2xl shadow-neutral-200 dark:shadow-neutral-950"
-				format="webp"
-			/></Col
-		>
-		<Col span="2" />
+		<Col span="6" classes="self-center">
+			<img
+				src="/gallery/home-visit-donation-2.jpeg"
+				alt="PSLN Trust volunteers distributing essentials to elderly residents"
+				class="rounded shadow-2xl shadow-neutral-200 dark:shadow-neutral-950"
+				loading="eager"
+			/>
+		</Col>
 	</Row>
 </Section>

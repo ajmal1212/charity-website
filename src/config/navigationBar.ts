@@ -33,25 +33,16 @@ export interface NavData {
 
 export const navigationBarData: NavData = {
 	logo: {
-		src: '/logo.svg',
-		alt: '"Codenetic – Complete Digital Solutions for Every Industry',
-		text: 'Codenetic.'
+		src: '',
+		alt: 'PSLN Trust logo',
+		text: 'PSLN Trust'
 	},
 	navItems: [
 		{ name: 'Home', link: '/' },
-		{ name: 'Blog', link: '/blog' },
-		{ name: 'Pricing', link: '/pricing' },
-		{ name: 'Features', link: '/features' },
-		{
-			name: 'Resources',
-			link: '#',
-			submenu: [
-				{ name: 'Changelog', link: '/changelog' },
-				{ name: 'FAQ', link: '/faq' },
-				{ name: 'Terms', link: '/terms' }
-			]
-		},
+		{ name: 'About Us', link: '/about' },
+		{ name: 'Donate', link: '/donate' },
+		{ name: 'FAQ', link: '/faq' },
 		{ name: 'Contact', link: '/contact' }
 	],
-	navActions: [{ name: 'Try it now', link: '/', style: 'primary', size: 'lg' }]
+	navActions: [{ name: 'Donate Now', link: '/donate', style: 'primary', size: 'lg' }]
 }

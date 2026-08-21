@@ -3,33 +3,26 @@
 // - Layout
 import Layout from '../layouts/Layout.astro'
 // - UI
-import FormHero from '../components/blocks/hero/ContactHero.astro'
+import Hero from '../components/blocks/hero/PageHeader.astro'
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 import ContactCards from '../components/blocks/contact/ContactCards.astro'
-import SocialProof from '../components/blocks/socialproof/Basic.astro'
 
 // Content
 // - SEO
 const SEO = {
-	title: 'Codenetic | Get in Touch with Us',
+	title: 'Contact Us | PSLN Trust',
 	description:
-		'Have questions or need assistance? Contact Codenetic today for support, inquiries, or feedback. Our team is here to help you make the most of your Codenetic experience.'
+		'Get in touch with PSLN Trust. Whether you have questions about our initiatives, want to get involved, or wish to donate, reach out to us via phone, email, or WhatsApp.'
 }
 // - Page Header
 const header = {
-	title: 'Get Answers to Your <strong>Codenetic</strong> Questions.',
-	text: "Whether you have a question, need support, or just want to share your feedback, we're all ears. Reach out to us and we'll get back to you as soon as possible."
+	title: 'Get in <strong>Touch</strong>',
+	text: "We'd love to hear from you. Whether you have questions about our initiatives, want to get involved, or simply wish to learn more about the work we do at PSLN Trust, please feel free to reach out. One act of generosity can make a world of difference — support a cause close to your heart and make a difference in someone's life today."
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
-	<FormHero
-		title={header.title}
-		text={header.text}
-		id="contact"
-		classes="bg-neutral-50 dark:bg-neutral-950/80"
-	/>
-	<ContactCards classes="dark:bg-neutral-950/80" />
-	<SocialProof classes="dark:bg-neutral-950/80" />
+	<Hero title={header.title} text={header.text} />
+	<ContactCards />
 	<CTA />
 </Layout>

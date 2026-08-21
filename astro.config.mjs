@@ -17,7 +17,7 @@ export default defineConfig({
   build: {
     format: 'file',
   },
-  site: "https://codenetic.tech/",
+  site: "https://pslntrust.org/",
   integrations: [tailwind(), icon(), sitemap(), mdx(), partytown({
     config: {
       forward: ["dataLayer.push"],

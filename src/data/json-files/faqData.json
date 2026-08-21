@@ -1,104 +1,50 @@
 [
 	{
-		"question": "What is the cost of the basic plan?",
-		"reply": "The basic plan is $9.99 per month, which includes access to core features and limited integrations. This plan is perfect for individuals or small teams looking to improve their productivity without a large investment.",
-		"category": "pricing",
+		"question": "When was PSLN Trust founded?",
+		"reply": "PICHUMANI SRI LAKSHMI NARASIMHAN (PSLN) TRUST was founded in August 2024 in Coimbatore with the mission of serving the underprivileged through education, food, clothing, and other humanitarian needs.",
+		"category": "about",
 		"open": true
 	},
 	{
-		"question": "Are there any discounts for annual subscriptions?",
-		"reply": "Yes, we offer a 20% discount on annual subscriptions for all our plans. By choosing an annual subscription, you can save money and ensure uninterrupted access to all Codenetic features for the entire year.",
-		"category": "pricing",
+		"question": "What does PSLN Trust do?",
+		"reply": "We provide financial assistance for girl-child education, support underprivileged students with food, clothing, and study materials, donate clothes to destitute individuals, and provide nutritious food and essential support to residents of orphanages and children's homes.",
+		"category": "about",
 		"open": false
 	},
 	{
-		"question": "Can I change my subscription plan at any time?",
-		"reply": "Yes, you can upgrade or downgrade your subscription plan at any time from your account settings. This flexibility allows you to adjust your plan based on your changing needs and usage.",
-		"category": "pricing",
+		"question": "Who does the trust help?",
+		"reply": "We reach deserving girl students, underprivileged children, destitute and economically disadvantaged individuals, and residents of orphanages and children's homes in and around Coimbatore, without discrimination based on religion, caste, gender, or community.",
+		"category": "about",
 		"open": false
 	},
 	{
-		"question": "Is there a free trial available?",
-		"reply": "Yes, we offer a 14-day free trial for all new users. During the trial, you can explore all the features of Codenetic without any commitment, allowing you to see how it fits into your workflow.",
-		"category": "pricing",
+		"question": "Is PSLN Trust a registered organisation?",
+		"reply": "Yes. PSLN Trust is registered with DARPAN ID: TN/2025/0490055, and is registered under Sec.12A of the Income Tax Act, 1961.",
+		"category": "about",
 		"open": false
 	},
 	{
-		"question": "Do you offer refunds?",
-		"reply": "We offer a 30-day money-back guarantee if you are not satisfied with our service. Simply contact our support team within 30 days of your purchase, and we'll process your refund.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "How do I cancel my subscription?",
-		"reply": "You can cancel your subscription from your account settings at any time. After cancellation, you will still have access to your account until the end of the billing cycle.",
-		"category": "pricing",
-		"open": false
-	},
-	{
-		"question": "Can I use Codenetic with Google Calendar?",
-		"reply": "Yes, Codenetic integrates seamlessly with Google Calendar for easy scheduling and task management. This integration helps you keep track of your events and tasks in one place.",
-		"category": "integrations",
+		"question": "How can I donate?",
+		"reply": "You can donate via bank transfer or UPI to the trust's account, or send a Cheque/DD to our Coimbatore office. Full bank details, UPI ID, and our QR code are available on the Donate page.",
+		"category": "donations",
 		"open": true
 	},
 	{
-		"question": "Does Codenetic work with Slack?",
-		"reply": "Yes, you can integrate Codenetic with Slack to receive notifications and updates directly in your channels. This allows you to stay informed about your projects without leaving Slack.",
-		"category": "integrations",
+		"question": "How is my donation used?",
+		"reply": "We depend entirely on voluntary contributions for all our work. Every contribution is used judiciously for our education, food, clothing, and humanitarian support initiatives, carried out with transparency, integrity, and accountability.",
+		"category": "donations",
 		"open": false
 	},
 	{
-		"question": "How do I connect Codenetic with Trello?",
-		"reply": "To connect Codenetic with Trello, go to the integrations page in your settings and follow the instructions to link your accounts. This integration helps you manage your Trello boards and Codenetic projects together.",
-		"category": "integrations",
+		"question": "Is there a minimum donation amount?",
+		"reply": "No. Donations of any size are gratefully accepted — every contribution, big or small, makes a meaningful difference.",
+		"category": "donations",
 		"open": false
 	},
 	{
-		"question": "Is there an API for custom integrations?",
-		"reply": "Yes, we provide an API that allows you to create custom integrations with Codenetic. Our API documentation provides detailed instructions and examples to help you get started.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "Can I sync Codenetic with my email?",
-		"reply": "Currently, we do not support email integration, but this feature is on our roadmap for future releases. Stay tuned for updates as we continue to enhance Codenetic's capabilities.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "Does Codenetic support Zapier?",
-		"reply": "Yes, Codenetic integrates with Zapier, allowing you to connect with over 2,000 apps and automate your workflows. This integration helps you streamline your processes and improve efficiency.",
-		"category": "integrations",
-		"open": false
-	},
-	{
-		"question": "What are the main features of Codenetic?",
-		"reply": "Codenetic includes in-app messaging, project management, time tracking, customizable dashboards, and more. These features are designed to help you stay organized, communicate effectively, and manage your time efficiently.",
-		"category": "features",
-		"open": true
-	},
-	{
-		"question": "How do I use the in-app messaging feature?",
-		"reply": "In-app messaging allows you to communicate with your team directly within Codenetic. Simply navigate to the messaging tab to start a conversation. You can send messages, share files, and create group chats.",
-		"category": "features",
-		"open": false
-	},
-	{
-		"question": "Can I customize my dashboard?",
-		"reply": "Yes, you can customize your dashboard by adding, removing, and rearranging widgets to fit your workflow. This customization helps you keep important information at your fingertips.",
-		"category": "features",
-		"open": false
-	},
-	{
-		"question": "How does the time tracking feature work?",
-		"reply": "Time tracking allows you to log the time spent on tasks and projects. Start the timer when you begin a task and stop it when you're done. You can also manually log time if needed.",
-		"category": "features",
-		"open": false
-	},
-	{
-		"question": "Is there a mobile app for Codenetic?",
-		"reply": "Yes, Codenetic is available on both iOS and Android, allowing you to manage your tasks and projects on the go. Download the app from the App Store or Google Play to stay productive anywhere.",
-		"category": "features",
+		"question": "How can I get in touch with the trust?",
+		"reply": "You can call or WhatsApp us at +91 9176 91 71 61, email pslnt@yahoo.com, or visit us at our Singanallur, Coimbatore office. You can also see our work on our YouTube channel, @PSLNTRUST.",
+		"category": "donations",
 		"open": false
 	}
 ]

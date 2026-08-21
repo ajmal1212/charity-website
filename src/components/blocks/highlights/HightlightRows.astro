@@ -1,67 +1,36 @@
 ---
 // Highlights Section
 // ------------
-// Description: A section with a multiple text and image rows.
+// Description: A section with multiple text and image rows introducing our vision, mission, and commitment.
 
 // Components
 // - UI
 import TextImage from '../basic/TextImage.astro'
 
-// Content
-import highlight01 from '../../../assets/highlights/highlight-01.svg'
-import highlight01mobile from '../../../assets/highlights/highlight-01-mobile.svg'
-import highlight02 from '../../../assets/highlights/highlight-02.svg'
-import highlight02mobile from '../../../assets/highlights/highlight-02-mobile.svg'
-import highlight03 from '../../../assets/highlights/highlight-03.svg'
-import highlight03mobile from '../../../assets/highlights/highlight-03-mobile.svg'
-import highlight04 from '../../../assets/highlights/highlight-04.svg'
-import highlight04mobile from '../../../assets/highlights/highlight-04-mobile.svg'
-
 type HighlightBlock = {
 	title: string
 	text: string
-	image: any
-	mobileImage?: any
-	imageWidth: number
-	imageHeight: number
+	image: string
 	imagePosition: 'left' | 'right'
 }
 const highlightBlocks: HighlightBlock[] = [
 	{
-		title: 'Complete Project <strong>Visibility</strong>',
-		text: 'Gain complete visibility into your projects and tasks with our comprehensive dashboard. Easily track progress, deadlines, and team performance at a glance. Our dashboard offers real-time project tracking',
-		image: highlight01,
-		imageWidth: highlight01.width,
-		imageHeight: highlight01.height,
-		mobileImage: highlight01mobile,
+		title: 'Our <strong>Vision</strong>',
+		text: 'To build a compassionate and equitable society where every girl has access to quality education, every underprivileged child is empowered to realize their potential, and every vulnerable individual is treated with dignity, care, and respect through meaningful humanitarian initiatives.',
+		image: '/gallery/independence-day-gathering.jpeg',
 		imagePosition: 'right'
 	},
 	{
-		title: 'Advanced <strong>Automation</strong> Tools',
-		text: 'Automate repetitive tasks and streamline your workflow with our advanced automation tools. Save time and reduce errors by leveraging automated task assignments, workflow templates, and seamless integration with popular apps and services.',
-		image: highlight02,
-		mobileImage: highlight02mobile,
-		imageWidth: highlight02.width,
-		imageHeight: highlight02.height,
+		title: '<strong>Reaching</strong> Those Who Need It Most',
+		text: 'We provide nutritious food and essential support to destitute residents of orphanages and children’s homes, ensuring their health and well-being are never overlooked.',
+		image: '/gallery/food-service-elders-3.jpeg',
 		imagePosition: 'left'
 	},
 	{
-		title: '<strong>Effective</strong> Team Collaboration',
-		text: 'Enhance team communication and collaboration with our seamless tools. Keep everyone on the same page and ensure efficient project execution through real-time messaging, shared document editing, and task comments. ',
-		image: highlight03,
-		mobileImage: highlight03mobile,
-		imageWidth: highlight03.width,
-		imageHeight: highlight03.height,
+		title: 'Our <strong>Commitment</strong>',
+		text: 'We are committed to creating opportunities that transform lives through education, nourishment, clothing, and compassionate care. Working together with donors, volunteers, and well-wishers, we strive to build a future where every child has the opportunity to learn, every girl has the confidence to pursue her dreams, and every needy individual experiences hope, dignity, and a better quality of life.',
+		image: '/gallery/home-visit-donation-1.jpeg',
 		imagePosition: 'right'
-	},
-	{
-		title: 'Robust Data <strong>Security</strong>',
-		text: 'Protect your data with our robust security features. We prioritize your privacy and security to ensure that your information is always safe. With end-to-end encryption, role-based access control, and regular security audits.',
-		image: highlight04,
-		mobileImage: highlight04mobile,
-		imageWidth: highlight04.width,
-		imageHeight: highlight04.height,
-		imagePosition: 'left'
 	}
 ]
 ---
@@ -72,10 +41,8 @@ const highlightBlocks: HighlightBlock[] = [
 			id={`highlight-${key}`}
 			title={highlight.title}
 			text={highlight.text}
-			image={highlight.image}
-			imageWidth={highlight.imageWidth}
-			imageHeight={highlight.imageHeight}
-			mobileImage={highlight.mobileImage}
+			image={{ src: highlight.image }}
+			mobileImage={{ src: highlight.image }}
 			imagePosition={highlight.imagePosition}
 			classes={key === 0 ? '!pb-0' : key === highlightBlocks.length - 1 ? '!pt-0' : '!py-0'}
 		/>

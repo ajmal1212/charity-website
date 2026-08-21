@@ -10,20 +10,18 @@ import HighlightBlocks from '../components/blocks/highlights/HightlightRows.astr
 import CTA from '../components/blocks/CTA/BasicDark.astro'
 
 // Content
-// - Testimonial background
-import testimonialBackground from '../assets/testimonial-bg-01.webp'
 // - SEO
 const SEO = {
-	title: 'Codenetic | Your Productivity Toolkit',
+	title: 'PSLN Trust | Empowering Lives with Dignity and Hope',
 	description:
-		'Codenetic is a powerful productivity toolkit designed to enhance your workflow and boost your productivity. With features like CRM, Whatsapp Automation, and Frappe integration, Codenetic is the perfect solution for your business.'
+		'PICHUMANI SRI LAKSHMI NARASIMHAN (PSLN) TRUST serves the underprivileged of Coimbatore through girl-child education, food, clothing, and care for the elderly and children in need.'
 }
 ---
 
 <Layout title={SEO.title} description={SEO.description}>
 	<Hero />
 	<Features />
-	<Testimonial bg={testimonialBackground} bgPosition="right" />
+	<Testimonial bg={{ src: '/gallery/independence-day-gathering.jpeg' }} bgPosition="center" />
 	<HighlightBlocks />
 	<CTA />
 </Layout>

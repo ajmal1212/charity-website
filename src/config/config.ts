@@ -23,29 +23,36 @@ export interface Config {
 }
 
 export const configData: Config = {
-	siteTitle: 'Codenetic – Complete Digital Solutions for Every Industry',
+	siteTitle: 'PSLN Trust | Pichumani Sri Lakshmi Narasimhan Trust, Coimbatore',
 	siteDescription:
-		'From CRM and WhatsApp automation to full digital marketing tools, Codenetic helps businesses grow through smart technology.',
-	ogImage: '/og.jpg',
+		'PSLN Trust supports underprivileged communities in Coimbatore through girl-child education, food, clothing, and care for the elderly and children in need.',
+	ogImage: '/gallery/home-visit-donation-2.jpeg',
 	logo: {
-		src: '/logo.svg',
-		alt: 'Codenetic. logo'
+		src: '',
+		alt: 'PSLN Trust logo'
 	},
 	canonical: true,
 	noindex: false,
 	mode: 'auto',
 	scrollAnimations: true,
-	twitterHandle: '@codenetic',
 	schemaOrg: {
-		"@context": "https://schema.org",
-		"@type": "Organization",
-		"name": "Codenetic Tech Solutions",
-		"url": "https://codenetic.tech",
-		"logo": "https://codenetic.tech/logo.svg",
-		"description": "Codenetic offers CRM systems, WhatsApp business integration, and marketing automation tools tailored for every industry.",
-		"founder": {
-			"@type": "Person",
-			"name": "Ajmal"
-		}
+		'@context': 'https://schema.org',
+		'@type': 'NGO',
+		name: 'Pichumani Sri Lakshmi Narasimhan Trust',
+		alternateName: 'PSLN Trust',
+		foundingDate: '2024-08',
+		description:
+			'A charitable trust based in Coimbatore serving the underprivileged through education, food, clothing, and other humanitarian needs.',
+		address: {
+			'@type': 'PostalAddress',
+			streetAddress: 'Flat No. 101, "A" Block, Ramani\'s SRISHTI Apartment, 291, Trichy Road, Singanallur',
+			addressLocality: 'Coimbatore',
+			postalCode: '641005',
+			addressRegion: 'Tamil Nadu',
+			addressCountry: 'IN'
+		},
+		telephone: '+91-9176917161',
+		email: 'pslnt@yahoo.com',
+		sameAs: ['https://www.youtube.com/@PSLNTRUST']
 	}
 }

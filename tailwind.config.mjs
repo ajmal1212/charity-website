@@ -1,5 +1,8 @@
 /** @type {import('tailwindcss').Config} */
-import defaultTheme from "tailwindcss/defaultTheme";
+import defaultTheme from "tailwindcss/defaultTheme.js";
+import typography from "@tailwindcss/typography";
+import plugin from "tailwindcss/plugin.js";
+
 export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   darkMode: ["selector"],
@@ -33,17 +36,17 @@ export default {
       colors: {
         transparent: "transparent",
         primary: {
-          50: "#fdf2f8",
-          100: "#fce7f3",
-          200: "#fbcfe8",
-          300: "#f9a8d4",
-          400: "#f472b6",
-          500: "#E2187D",
-          600: "#db2777",
-          700: "#be185d",
-          800: "#9d174d",
-          900: "#831843",
-          950: "#500724",
+          50: "#fff7ed",
+          100: "#ffedd5",
+          200: "#fed7aa",
+          300: "#fdba74",
+          400: "#fb923c",
+          500: "#f2760f",
+          600: "#c2540c",
+          700: "#9a4310",
+          800: "#7c3712",
+          900: "#652f12",
+          950: "#361507",
         },
         neutral: {
           50: "#f8fafc",
@@ -100,8 +103,8 @@ export default {
     animation: ["responsive"],
   },
   plugins: [
-    require("@tailwindcss/typography"),
-    require("tailwindcss/plugin")(function ({ addVariant }) {
+    typography,
+    plugin(function ({ addVariant }) {
       addVariant("dark-me", ".dark_&");
     }),
   ],

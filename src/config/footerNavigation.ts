@@ -35,93 +35,70 @@ export interface FooterData {
 
 export const footerNavigationData: FooterData = {
 	footerAbout: {
-		title: 'Codenetic.',
+		title: 'PSLN Trust',
 		aboutText:
-			'We are a next-gen digital solutions provider focused on helping businesses automate their workflows,',
+			'Pichumani Sri Lakshmi Narasimhan Trust serves the underprivileged of Coimbatore through education, food, clothing, and humanitarian support, empowering lives with dignity and hope.',
 		logo: {
-			src: '/logo.svg',
-			alt: 'codenetic tech solution',
-			text: 'Codenetic.'
+			src: '',
+			alt: 'PSLN Trust logo',
+			text: 'PSLN Trust'
 		}
 	},
 	footerColumns: [
 		{
-			category: 'Product',
+			category: 'About',
 			subCategories: [
 				{
-					subCategory: 'Features',
-					subCategoryLink: '/features'
+					subCategory: 'About Us',
+					subCategoryLink: '/about'
 				},
 				{
 					subCategory: 'FAQ',
 					subCategoryLink: '/faq'
 				},
 				{
-					subCategory: 'Pricing',
-					subCategoryLink: '/pricing'
-				},
-				{
-					subCategory: 'Changelog',
-					subCategoryLink: '/changelog'
-				},
-				{
-					subCategory: 'Terms',
-					subCategoryLink: '/terms'
+					subCategory: 'Contact',
+					subCategoryLink: '/contact'
 				}
 			]
 		},
 		{
-			category: 'About us',
+			category: 'Get Involved',
 			subCategories: [
 				{
-					subCategory: 'About us',
-					subCategoryLink: '/'
+					subCategory: 'Donate',
+					subCategoryLink: '/donate'
 				},
 				{
-					subCategory: 'News',
-					subCategoryLink: '/blog'
+					subCategory: 'Call Us',
+					subCategoryLink: 'tel:+919176917161'
 				},
 				{
-					subCategory: 'Careers',
-					subCategoryLink: '/blog'
-				},
+					subCategory: 'Email Us',
+					subCategoryLink: 'mailto:pslnt@yahoo.com'
+				}
+			]
+		},
+		{
+			category: 'Legal',
+			subCategories: [
 				{
-					subCategory: 'Privacy policy',
+					subCategory: 'Privacy Policy',
 					subCategoryLink: '/privacy-policy'
 				},
 				{
-					subCategory: 'Terms of service',
-					subCategoryLink: '/terms-of-service'
+					subCategory: 'Terms & Conditions',
+					subCategoryLink: '/terms'
 				},
 				{
 					subCategory: 'Data Deletion',
 					subCategoryLink: '/data-deletion'
 				}
 			]
-		},
-		{
-			category: 'Get in touch',
-			subCategories: [
-				{
-					subCategory: 'Contact',
-					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Support',
-					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Join us',
-					subCategoryLink: '/contact'
-				},
-				{
-					subCategory: 'Profile',
-					subCategoryLink: '/profile'
-				}
-			]
 		}
 	],
 	subFooter: {
-		copywriteText: '© codenetic 2025.'
+		copywriteText:
+			'© PICHUMANI SRI LAKSHMI NARASIMHAN TRUST. DARPAN ID: TN/2025/0490055. Registered under Sec.12A of the Income Tax Act, 1961.'
 	}
 }

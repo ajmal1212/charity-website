@@ -1,0 +1,176 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import Hero from '../components/blocks/hero/PageHeader.astro'
+import TextImage from '../components/blocks/basic/TextImage.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Card from '../components/ui/cards/BasicCard.astro'
+import CTA from '../components/blocks/CTA/BasicDark.astro'
+
+// Content
+// - SEO
+const SEO = {
+	title: 'About Us | PSLN Trust',
+	description:
+		'Learn about PICHUMANI SRI LAKSHMI NARASIMHAN (PSLN) TRUST — our vision, mission, goals, and core values in serving the underprivileged of Coimbatore.'
+}
+// - Page Header
+const header = {
+	title: 'About <strong>PSLN Trust</strong>',
+	text: 'PICHUMANI SRI LAKSHMI NARASIMHAN (PSLN) TRUST was founded in August 2024 in Coimbatore with the noble mission of serving the underprivileged by extending timely support in the areas of education, food, clothing, and other humanitarian needs, thereby empowering lives with dignity and hope.'
+}
+
+// - Core values
+const coreValues = [
+	{
+		title: 'Compassion',
+		subtitle: 'Serving humanity with empathy and kindness.',
+		icon: 'heart'
+	},
+	{
+		title: 'Education',
+		subtitle: 'Believing education is the foundation for empowerment and social transformation.',
+		icon: 'book'
+	},
+	{
+		title: 'Dignity',
+		subtitle: 'Respecting every individual irrespective of their social or economic background.',
+		icon: 'identification'
+	},
+	{
+		title: 'Integrity',
+		subtitle: 'Maintaining honesty, transparency, and accountability in every initiative.',
+		icon: 'shield-check'
+	},
+	{
+		title: 'Inclusiveness',
+		subtitle:
+			'Reaching those most in need without discrimination based on religion, caste, gender, or community.',
+		icon: 'user-group'
+	},
+	{
+		title: 'Service',
+		subtitle: 'Working selflessly to improve the lives of the underprivileged and vulnerable sections of society.',
+		icon: 'gift'
+	}
+]
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+
+	<TextImage
+		id="vision"
+		title="Our <strong>Vision</strong>"
+		text="To build a compassionate and equitable society where every girl has access to quality education, every underprivileged child is empowered to realize their potential, and every vulnerable individual is treated with dignity, care, and respect through meaningful humanitarian initiatives."
+		image={{ src: '/gallery/independence-day-gathering.jpeg' }}
+		mobileImage={{ src: '/gallery/independence-day-gathering.jpeg' }}
+		imagePosition="right"
+	/>
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
+				<h2 class="text-pretty">Our <strong>Mission</strong></h2>
+				<p class="pb-0 text-lg">Our mission is to uplift disadvantaged communities by:</p>
+			</Col>
+		</Row>
+		<Row>
+			<Col span="6">
+				<Card
+					title="Girl Child Education"
+					subtitle="Providing financial assistance to deserving girl students to help them pursue quality education without financial barriers."
+					icon="book"
+					classes="h-full dark:!bg-neutral-800/50"
+				/>
+			</Col>
+			<Col span="6">
+				<Card
+					title="Educational Essentials"
+					subtitle="Supporting underprivileged students with food, clothing, study materials, and other basic necessities to enable uninterrupted learning."
+					icon="gift"
+					classes="h-full dark:!bg-neutral-800/50"
+				/>
+			</Col>
+			<Col span="6">
+				<Card
+					title="Clothing for the Destitute"
+					subtitle="Donating clothes to destitute and economically disadvantaged individuals, restoring dignity and improving their quality of life."
+					icon="heart"
+					classes="h-full dark:!bg-neutral-800/50"
+				/>
+			</Col>
+			<Col span="6">
+				<Card
+					title="Food & Elder Care"
+					subtitle="Providing nutritious food and other essential support to destitutes residing in orphanages and children's homes, promoting their health and well-being."
+					icon="user-group"
+					classes="h-full dark:!bg-neutral-800/50"
+				/>
+			</Col>
+		</Row>
+	</Section>
+
+	<Section>
+		<Row>
+			<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
+				<h2 class="text-pretty">Our <strong>Goal &amp; Aim</strong></h2>
+			</Col>
+		</Row>
+		<Row>
+			<Col span="6">
+				<Card
+					title="Mobilizing Support"
+					subtitle="Encouraging social responsibility by mobilizing individuals, volunteers, and donors to participate in charitable activities that create sustainable and lasting social impact."
+					icon="user-group"
+					classes="h-full dark:!bg-neutral-800/50"
+				/>
+			</Col>
+			<Col span="6">
+				<Card
+					title="Transparency & Accountability"
+					subtitle="Ensuring that all charitable activities are carried out with transparency, integrity, accountability, and compassion."
+					icon="shield-check"
+					classes="h-full dark:!bg-neutral-800/50"
+				/>
+			</Col>
+		</Row>
+	</Section>
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center" classes="mb-12 max-w-4xl mx-auto">
+				<h2 class="text-pretty">Our <strong>Core Values</strong></h2>
+			</Col>
+		</Row>
+		<Row>
+			{
+				coreValues.map((value) => (
+					<Col span="4">
+						<Card
+							title={value.title}
+							subtitle={value.subtitle}
+							icon={value.icon}
+							classes="text-center h-full dark:!bg-neutral-900/50"
+						/>
+					</Col>
+				))
+			}
+		</Row>
+	</Section>
+
+	<TextImage
+		id="commitment"
+		title="Our <strong>Commitment</strong>"
+		text="We are committed to creating opportunities that transform lives through education, nourishment, clothing, and compassionate care. By working together with donors, volunteers and well-wishers, we strive to build a future where every child has the opportunity to learn, every girl has the confidence to pursue her dreams, and every needy individual experiences hope, dignity, and a better quality of life."
+		image={{ src: '/gallery/home-visit-donation-1.jpeg' }}
+		mobileImage={{ src: '/gallery/home-visit-donation-1.jpeg' }}
+		imagePosition="left"
+	/>
+
+	<CTA />
+</Layout>

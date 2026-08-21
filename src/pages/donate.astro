@@ -1,0 +1,130 @@
+---
+// Components
+// - Layout
+import Layout from '../layouts/Layout.astro'
+// - UI
+import Hero from '../components/blocks/hero/PageHeader.astro'
+import Section from '../components/ui/Section.astro'
+import Row from '../components/ui/Row.astro'
+import Col from '../components/ui/Col.astro'
+import Card from '../components/ui/cards/partials/Card.astro'
+import CardBody from '../components/ui/cards/partials/CardBody.astro'
+import { Icon } from 'astro-icon/components'
+
+// Content
+// - SEO
+const SEO = {
+	title: 'Donate | PSLN Trust',
+	description:
+		'Support PSLN Trust with a donation. Bank transfer, UPI, or cheque/DD details for contributing to education, food, and clothing for the underprivileged in Coimbatore.'
+}
+// - Page Header
+const header = {
+	title: 'Donate for a <strong>Cause</strong>',
+	text: 'You can make a difference for society. We depend entirely on voluntary contributions for all our work. Your contributions mean a great deal to us and, even more, to those in need. Donations of any size are gratefully accepted. We assure you that every paise collected will be judiciously used for the society.'
+}
+
+const bankDetails = [
+	{ label: 'Account Name', value: 'PICHUMANI SRI LAKSHMI NARASIMHAN TRUST' },
+	{ label: 'Account Number', value: '50200107503558 (Current Account)' },
+	{ label: 'Bank & Branch', value: 'HDFC Bank, Nava India, Peelamedu, Coimbatore' },
+	{ label: 'IFSC Code', value: 'HDFC0007792' },
+	{ label: 'SWIFT Code', value: 'HDFCINBBCHE' },
+	{ label: 'UPI ID', value: 'pichumanisrilakshmin.62964857@hdfcbank' }
+]
+---
+
+<Layout title={SEO.title} description={SEO.description}>
+	<Hero title={header.title} text={header.text} />
+
+	<Section>
+		<Row>
+			<Col span="6">
+				<Card classes="h-full">
+					<CardBody classes="flex h-full flex-col">
+						<Icon name="envelope" class="mb-4 h-8 w-8 text-primary-500" />
+						<h3 class="text-2xl">Cheques &amp; DDs</h3>
+						<p>
+							All contributions by Cheques &amp; DDs must be sent in favour of
+							<strong>PICHUMANI SRI LAKSHMI NARASIMHAN TRUST</strong> to:
+						</p>
+						<p class="mb-0">
+							Flat No. 101, "A" Block,<br />
+							Ramani's SRISHTI Apartment,<br />
+							291, Trichy Road, Singanallur,<br />
+							Coimbatore - 641 005
+						</p>
+					</CardBody>
+				</Card>
+			</Col>
+			<Col span="6">
+				<Card classes="h-full">
+					<CardBody classes="flex h-full flex-col">
+						<Icon name="whatsapp-icon" class="mb-4 h-8 w-8 text-primary-500" />
+						<h3 class="text-2xl">Contact for Donations</h3>
+						<p>
+							For any questions about donating, or to coordinate your contribution, reach out to
+							us directly.
+						</p>
+						<p class="mb-0">
+							Mobile &amp; WhatsApp:
+							<a href="tel:+919176917161" class="font-semibold">+91 9176 91 71 61</a>
+						</p>
+					</CardBody>
+				</Card>
+			</Col>
+		</Row>
+	</Section>
+
+	<Section classes="bg-neutral-50 dark:bg-neutral-900">
+		<Row>
+			<Col span="12" align="center" classes="mb-12 max-w-3xl mx-auto">
+				<h2 class="text-pretty">Bank Details for <strong>Donations</strong></h2>
+				<p class="pb-0 text-lg">
+					You may transfer your contribution directly to the trust's bank account, or scan the QR
+					code below using any UPI app.
+				</p>
+			</Col>
+		</Row>
+		<Row>
+			<Col span="7">
+				<Card>
+					<CardBody>
+						<dl class="divide-y divide-neutral-100 dark:divide-neutral-800 [&_dd]:text-neutral-700 [&_dd]:dark:text-neutral-50 [&_dd]:font-medium [&_dt]:text-sm [&_dt]:uppercase [&_dt]:tracking-wide [&>div]:flex [&>div]:flex-col [&>div]:gap-1 [&>div]:py-4 [&>div:first-child]:pt-0 [&>div:last-child]:pb-0">
+							{
+								bankDetails.map((detail) => (
+									<div>
+										<dt>{detail.label}</dt>
+										<dd class="break-words">{detail.value}</dd>
+									</div>
+								))
+							}
+						</dl>
+					</CardBody>
+				</Card>
+			</Col>
+			<Col span="5">
+				<Card classes="h-full">
+					<CardBody classes="flex h-full flex-col items-center justify-center text-center">
+						<img
+							src="/qr-code.jpeg"
+							alt="PSLN Trust UPI QR code for donations"
+							class="mb-4 w-full max-w-64 rounded border border-neutral-100 dark:border-neutral-800"
+						/>
+						<p class="mb-0 text-sm">Scan to donate via any UPI app</p>
+					</CardBody>
+				</Card>
+			</Col>
+		</Row>
+	</Section>
+
+	<Section>
+		<Row>
+			<Col span="12" align="center" classes="max-w-3xl mx-auto">
+				<p class="mb-0 small">
+					DARPAN ID: TN/2025/0490055 &middot; Registered under Sec.12A of the Income Tax Act, 1961.
+				</p>
+			</Col>
+		</Row>
+	</Section>
+</Layout>

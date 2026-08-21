@@ -39,7 +39,7 @@ export const footerNavigationData: FooterData = {
 		aboutText:
 			'Pichumani Sri Lakshmi Narasimhan Trust serves the underprivileged of Coimbatore through education, food, clothing, and humanitarian support, empowering lives with dignity and hope.',
 		logo: {
-			src: '',
+			src: '/trust logo.png',
 			alt: 'PSLN Trust logo',
 			text: 'PSLN Trust'
 		}

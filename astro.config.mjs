@@ -11,6 +11,8 @@ import sitemap from "@astrojs/sitemap";
 import react from "@astrojs/react";
 import markdoc from "@astrojs/markdoc";
 
+const isBuild = process.argv.includes('build');
+
 // https://astro.build/config
 export default defineConfig({
   trailingSlash: 'ignore',
@@ -36,9 +38,9 @@ export default defineConfig({
   }),
   vite: {
     resolve: {
-      alias: {
+      alias: isBuild ? {
         "react-dom/server": "react-dom/server.edge",
-      },
+      } : {},
     },
   },
 });

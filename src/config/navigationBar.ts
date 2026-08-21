@@ -33,7 +33,7 @@ export interface NavData {
 
 export const navigationBarData: NavData = {
 	logo: {
-		src: '',
+		src: '/trust logo.png',
 		alt: 'PSLN Trust logo',
 		text: 'PSLN Trust'
 	},

@@ -99,6 +99,6 @@ export const footerNavigationData: FooterData = {
 	],
 	subFooter: {
 		copywriteText:
-			'© PICHUMANI SRI LAKSHMI NARASIMHAN TRUST. DARPAN ID: TN/2025/0490055. Registered under Sec.12A of the Income Tax Act, 1961.'
+			'© PICHUMANI SRI LAKSHMI NARASIMHAN TRUST. DARPAN ID: TN/2025/0490055.'
 	}
 }

@@ -63,8 +63,8 @@ const bankDetails = [
 						<Icon name="whatsapp-icon" class="mb-4 h-8 w-8 text-primary-500" />
 						<h3 class="text-2xl">Contact for Donations</h3>
 						<p>
-							For any questions about donating, or to coordinate your contribution, reach out to
-							us directly.
+							For any questions about donating, or to coordinate your contribution,
+							reach out to us directly.
 						</p>
 						<p class="mb-0">
 							Mobile &amp; WhatsApp:
@@ -81,8 +81,8 @@ const bankDetails = [
 			<Col span="12" align="center" classes="mb-12 max-w-3xl mx-auto">
 				<h2 class="text-pretty">Bank Details for <strong>Donations</strong></h2>
 				<p class="pb-0 text-lg">
-					You may transfer your contribution directly to the trust's bank account, or scan the QR
-					code below using any UPI app.
+					You may transfer your contribution directly to the trust's bank account, or scan
+					the QR code below using any UPI app.
 				</p>
 			</Col>
 		</Row>
@@ -90,7 +90,9 @@ const bankDetails = [
 			<Col span="7">
 				<Card>
 					<CardBody>
-						<dl class="divide-y divide-neutral-100 dark:divide-neutral-800 [&_dd]:text-neutral-700 [&_dd]:dark:text-neutral-50 [&_dd]:font-medium [&_dt]:text-sm [&_dt]:uppercase [&_dt]:tracking-wide [&>div]:flex [&>div]:flex-col [&>div]:gap-1 [&>div]:py-4 [&>div:first-child]:pt-0 [&>div:last-child]:pb-0">
+						<dl
+							class="divide-y divide-neutral-100 dark:divide-neutral-800 [&>div:first-child]:pt-0 [&>div:last-child]:pb-0 [&>div]:flex [&>div]:flex-col [&>div]:gap-1 [&>div]:py-4 [&_dd]:font-medium [&_dd]:text-neutral-700 [&_dd]:dark:text-neutral-50 [&_dt]:text-sm [&_dt]:uppercase [&_dt]:tracking-wide"
+						>
 							{
 								bankDetails.map((detail) => (
 									<div>
@@ -105,7 +107,9 @@ const bankDetails = [
 			</Col>
 			<Col span="5">
 				<Card classes="h-full">
-					<CardBody classes="flex h-full flex-col items-center justify-center text-center">
+					<CardBody
+						classes="flex h-full flex-col items-center justify-center text-center"
+					>
 						<img
 							src="/qr-code.jpeg"
 							alt="PSLN Trust UPI QR code for donations"
@@ -121,9 +125,7 @@ const bankDetails = [
 	<Section>
 		<Row>
 			<Col span="12" align="center" classes="max-w-3xl mx-auto">
-				<p class="mb-0 small">
-					DARPAN ID: TN/2025/0490055 &middot; Registered under Sec.12A of the Income Tax Act, 1961.
-				</p>
+				<p class="small mb-0">DARPAN ID: TN/2025/0490055 &middot;</p>
 			</Col>
 		</Row>
 	</Section>

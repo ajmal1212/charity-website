@@ -1,0 +1,329 @@
+---
+// Testimonial Carousel Section
+// ------------
+// Description: A featured testimonial beside a photo, followed by a swipeable carousel of
+// testimonial cards. Long quotes are clamped and open in full inside a dialog.
+
+// Components
+// - Layout
+import Section from '../../ui/Section.astro'
+import Row from '../../ui/Row.astro'
+import Col from '../../ui/Col.astro'
+// - UI
+import { Icon } from 'astro-icon/components'
+
+// Data
+import testimonials from '../../../data/json-files/testimonialsData.json'
+
+type Props = {
+	photo?: string
+	photoCaption?: string
+}
+const {
+	photo = '/gallery/sevashram-children-2.jpg',
+	photoCaption = 'With the children of Sevashram'
+} = Astro.props
+
+const featured = testimonials.find((t) => 'featured' in t && t.featured) ?? testimonials[0]
+const others = testimonials.filter((t) => t !== featured)
+
+const formatDate = (iso: string) =>
+	new Date(iso + 'T00:00:00Z').toLocaleDateString('en-GB', {
+		day: 'numeric',
+		month: 'short',
+		year: 'numeric',
+		timeZone: 'UTC'
+	})
+
+const initials = (name: string) =>
+	name
+		.replace(/\./g, ' ')
+		.split(/\s+/)
+		.filter(Boolean)
+		.slice(0, 2)
+		.map((part) => part[0].toUpperCase())
+		.join('')
+
+const paragraphs = (quote: string) => quote.split('\n\n')
+---
+
+<Section id="testimonials" classes="bg-neutral-50 dark:bg-neutral-900">
+	<Row>
+		<Col span="12" align="center" classes="mb-12 lg:mb-16 max-w-3xl mx-auto">
+			<span class="tm__eyebrow">
+				<Icon name="heart" size={16} width={16} height={16} />
+				Testimonials
+			</span>
+			<h2 class="text-pretty">Words from Our <strong>Well-Wishers</strong></h2>
+			<p class="pb-0 text-lg">
+				Donors and supporters share what the trust’s work means to them and to the people we serve.
+			</p>
+		</Col>
+	</Row>
+
+	<!-- Featured -->
+	<div class="tm__feature">
+		<div class="tm__photo">
+			<img src={photo} alt={photoCaption} loading="lazy" decoding="async" />
+			<div class="tm__photo-badge">
+				<div class="tm__stack" aria-hidden="true">
+					{
+						testimonials.slice(0, 4).map((t) => (
+							<span class="tm__avatar tm__avatar--sm">{initials(t.name)}</span>
+						))
+					}
+				</div>
+				<div class="leading-tight">
+					<strong class="block text-neutral-900 dark:text-neutral-50">
+						{testimonials.length} kind words
+					</strong>
+					<span class="text-xs">{photoCaption}</span>
+				</div>
+			</div>
+		</div>
+
+		<figure class="tm__featured">
+			<Icon name="quotes" class="tm__featured-icon" size={56} width={56} height={56} />
+			<blockquote class="tm__featured-quote">
+				{paragraphs(featured.quote).map((p) => <p>{p}</p>)}
+			</blockquote>
+			<figcaption class="tm__author">
+				<span class="tm__avatar tm__avatar--lg" aria-hidden="true">{initials(featured.name)}</span>
+				<span class="flex flex-col">
+					<cite class="tm__name">{featured.name}</cite>
+					<time class="tm__date" datetime={featured.date}>{formatDate(featured.date)}</time>
+				</span>
+			</figcaption>
+		</figure>
+	</div>
+
+	<!-- Carousel -->
+	<div class="tm__carousel" data-tm-carousel>
+		<div class="tm__carousel-head">
+			<h3 class="tm__carousel-title">More from our supporters</h3>
+			<div class="flex gap-2">
+				<button type="button" class="tm__nav" data-tm-prev aria-label="Previous testimonials">
+					<Icon name="chevron-left" size={20} width={20} height={20} />
+				</button>
+				<button type="button" class="tm__nav" data-tm-next aria-label="Next testimonials">
+					<Icon name="chevron-left" class="rotate-180" size={20} width={20} height={20} />
+				</button>
+			</div>
+		</div>
+
+		<ul class="tm__track" data-tm-track aria-label="Testimonials">
+			{
+				others.map((t) => (
+					<li class="tm__slide">
+						<figure class="tm__card">
+							<Icon name="quotes" class="tm__card-icon" size={32} width={32} height={32} />
+							<blockquote class="tm__card-quote" data-tm-quote>
+								{paragraphs(t.quote).map((p) => (
+									<p>{p}</p>
+								))}
+							</blockquote>
+							<button type="button" class="tm__more" data-tm-more hidden>
+								Read more
+							</button>
+							<figcaption class="tm__author mt-auto">
+								<span class="tm__avatar" aria-hidden="true">
+									{initials(t.name)}
+								</span>
+								<span class="flex flex-col">
+									<cite class="tm__name">{t.name}</cite>
+									<time class="tm__date" datetime={t.date}>
+										{formatDate(t.date)}
+									</time>
+								</span>
+							</figcaption>
+						</figure>
+					</li>
+				))
+			}
+		</ul>
+
+		<div class="tm__progress" aria-hidden="true"><span data-tm-bar></span></div>
+	</div>
+
+	<dialog class="tm__dialog" data-tm-dialog aria-label="Full testimonial">
+		<button type="button" class="tm__dialog-close" data-tm-close aria-label="Close">
+			<Icon name="x-mark" size={20} width={20} height={20} />
+		</button>
+		<div data-tm-dialog-body></div>
+	</dialog>
+</Section>
+
+<script>
+	const initTestimonials = () => {
+		document.querySelectorAll<HTMLElement>('[data-tm-carousel]').forEach((carousel) => {
+			if (carousel.dataset.ready) return
+			carousel.dataset.ready = 'true'
+
+			const track = carousel.querySelector<HTMLElement>('[data-tm-track]')!
+			const prev = carousel.querySelector<HTMLButtonElement>('[data-tm-prev]')!
+			const next = carousel.querySelector<HTMLButtonElement>('[data-tm-next]')!
+			const bar = carousel.querySelector<HTMLElement>('[data-tm-bar]')!
+			const section = carousel.closest('section')!
+			const dialog = section.querySelector<HTMLDialogElement>('[data-tm-dialog]')!
+			const dialogBody = dialog.querySelector<HTMLElement>('[data-tm-dialog-body]')!
+
+			const step = () => {
+				const slide = track.querySelector<HTMLElement>('.tm__slide')
+				return slide ? slide.offsetWidth + 24 : track.clientWidth
+			}
+
+			const update = () => {
+				const max = track.scrollWidth - track.clientWidth
+				const ratio = max > 0 ? track.scrollLeft / max : 1
+				const visible = track.clientWidth / track.scrollWidth
+				bar.style.width = `${Math.max(visible, 0.08) * 100}%`
+				bar.style.transform = `translateX(${(ratio * (1 - visible) * 100) / visible}%)`
+				prev.disabled = track.scrollLeft <= 4
+				next.disabled = track.scrollLeft >= max - 4
+			}
+
+			prev.addEventListener('click', () => track.scrollBy({ left: -step(), behavior: 'smooth' }))
+			next.addEventListener('click', () => track.scrollBy({ left: step(), behavior: 'smooth' }))
+			track.addEventListener('scroll', update, { passive: true })
+
+			// Show "Read more" only on quotes that are actually clamped
+			const checkClamps = () => {
+				track.querySelectorAll<HTMLElement>('[data-tm-quote]').forEach((quote) => {
+					const btn = quote.parentElement!.querySelector<HTMLButtonElement>('[data-tm-more]')!
+					btn.hidden = quote.scrollHeight <= quote.clientHeight + 2
+				})
+				update()
+			}
+			new ResizeObserver(checkClamps).observe(track)
+
+			track.querySelectorAll<HTMLButtonElement>('[data-tm-more]').forEach((btn) => {
+				btn.addEventListener('click', () => {
+					const card = btn.closest('.tm__card')!
+					dialogBody.innerHTML = ''
+					const quote = card.querySelector('[data-tm-quote]')!.cloneNode(true) as HTMLElement
+					quote.className = 'tm__dialog-quote'
+					const author = card.querySelector('.tm__author')!.cloneNode(true) as HTMLElement
+					author.classList.remove('mt-auto')
+					dialogBody.append(quote, author)
+					dialog.showModal()
+				})
+			})
+
+			dialog.querySelector('[data-tm-close]')!.addEventListener('click', () => dialog.close())
+			dialog.addEventListener('click', (e) => {
+				if (e.target === dialog) dialog.close()
+			})
+		})
+	}
+
+	initTestimonials()
+	document.addEventListener('astro:page-load', initTestimonials)
+</script>
+
+<style>
+	.tm__eyebrow {
+		@apply mb-4 inline-flex items-center gap-2 rounded-full bg-primary-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary-700 dark:bg-primary-500/15 dark:text-primary-300;
+	}
+
+	/* Featured */
+	.tm__feature {
+		@apply grid items-center gap-8 lg:grid-cols-12 lg:gap-12;
+	}
+	.tm__photo {
+		@apply relative lg:col-span-5;
+	}
+	.tm__photo img {
+		@apply aspect-[4/3] w-full rounded-3xl object-cover shadow-2xl shadow-neutral-900/10 ring-1 ring-neutral-900/5 lg:aspect-[4/5] dark:ring-white/10;
+	}
+	.tm__photo-badge {
+		@apply absolute -bottom-5 left-4 flex items-center gap-3 rounded-2xl bg-white/90 p-3 pr-5 text-sm text-neutral-500 shadow-xl shadow-neutral-900/10 backdrop-blur sm:left-6 dark:bg-neutral-800/90 dark:text-neutral-400;
+	}
+	.tm__stack {
+		@apply flex -space-x-3 [&>span]:ring-2 [&>span]:ring-white dark:[&>span]:ring-neutral-800;
+	}
+	.tm__featured {
+		@apply relative mt-6 lg:col-span-7 lg:mt-0;
+	}
+	.tm__featured-icon {
+		@apply mb-4 text-primary-500;
+	}
+	.tm__featured-quote {
+		@apply flex flex-col gap-4 text-lg font-medium leading-relaxed text-neutral-700 lg:text-xl lg:leading-relaxed dark:text-neutral-100 [&>p]:pb-0;
+	}
+
+	/* Shared */
+	.tm__author {
+		@apply flex items-center gap-4 pt-6;
+	}
+	.tm__avatar {
+		@apply flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-primary-400 to-primary-600 text-sm font-bold text-white;
+	}
+	.tm__avatar--sm {
+		@apply h-8 w-8 text-[10px];
+	}
+	.tm__avatar--lg {
+		@apply h-14 w-14 text-base;
+	}
+	.tm__name {
+		@apply font-bold not-italic text-neutral-900 dark:text-neutral-50;
+	}
+	.tm__date {
+		@apply text-sm text-neutral-500 dark:text-neutral-400;
+	}
+
+	/* Carousel */
+	.tm__carousel {
+		@apply mt-20 lg:mt-24;
+	}
+	.tm__carousel-head {
+		@apply mb-6 flex items-end justify-between gap-4;
+	}
+	.tm__carousel-title {
+		@apply text-xl font-bold lg:text-2xl;
+	}
+	.tm__nav {
+		@apply flex h-11 w-11 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-700 transition hover:border-primary-500 hover:bg-primary-500 hover:text-white disabled:pointer-events-none disabled:opacity-40 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100;
+	}
+	.tm__track {
+		@apply -mx-6 flex snap-x snap-mandatory scroll-px-6 gap-6 overflow-x-auto px-6 pb-4 pt-2;
+		scrollbar-width: none;
+	}
+	.tm__track::-webkit-scrollbar {
+		display: none;
+	}
+	.tm__slide {
+		@apply flex w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-[calc((100%-3rem)/3)];
+	}
+	.tm__card {
+		@apply flex w-full flex-col rounded-2xl border border-neutral-100 bg-white p-7 shadow-lg shadow-neutral-700/5 transition duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-neutral-800 dark:bg-neutral-950 dark:shadow-neutral-950/50;
+	}
+	.tm__card-icon {
+		@apply mb-4 text-primary-500/30;
+	}
+	.tm__card-quote {
+		@apply line-clamp-6 leading-relaxed text-neutral-600 dark:text-neutral-300 [&>p+p]:mt-3 [&>p]:pb-0;
+	}
+	.tm__more {
+		@apply mt-3 self-start text-sm font-bold text-primary-500 hover:text-primary-600;
+	}
+	.tm__card .tm__author {
+		@apply mt-6 border-t border-neutral-100 dark:border-neutral-800;
+	}
+	.tm__progress {
+		@apply mx-auto mt-6 h-1 max-w-xs overflow-hidden rounded-full bg-neutral-200 dark:bg-neutral-800;
+	}
+	.tm__progress > span {
+		@apply block h-full rounded-full bg-primary-500 transition-transform duration-150;
+	}
+
+	/* Dialog */
+	.tm__dialog {
+		@apply w-[calc(100%-2rem)] max-w-2xl rounded-2xl border border-neutral-100 bg-white p-8 text-neutral-600 shadow-2xl backdrop:bg-neutral-950/60 backdrop:backdrop-blur-sm sm:p-10 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-300;
+	}
+	.tm__dialog-close {
+		@apply absolute right-4 top-4 flex h-9 w-9 items-center justify-center rounded-full text-neutral-500 hover:bg-neutral-100 dark:hover:bg-neutral-800;
+	}
+	.tm__dialog :global(.tm__dialog-quote) {
+		@apply flex flex-col gap-4 pr-6 text-lg leading-relaxed [&>p]:pb-0;
+	}
+</style>
